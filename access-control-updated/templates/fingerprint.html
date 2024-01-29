@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+    <link rel="manifest" href="/static/site.webmanifest">
+
+    <link rel="stylesheet" href="/static/main.css">
+
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <title>Intelligent Access Control System</title>
+</head>
+
+<body>
+
+    <div class='mt-3 text-center'>
+        <a href="/">
+            <img src="/static/logo.png" style="width: 80px; height:80px;" alt="" srcset="">
+        </a>
+        <h2 style="width: auto;margin: auto;color: white;padding: 11px;font-size: 32px;">Intelligent
+            Access Control System</h2>
+    </div>
+
+    <input type="hidden" name="user_id" id="user_id" value="{{user_id}}">
+
+
+    <div class="d-flex justify-content-center p-5">
+        <form action="#" onsubmit="return false" class="finger-form">
+            <div id="enrollmentStatusField" class="text-center">
+                <!--Enrollment Status will be displayed Here -->
+            </div>
+            <div class="row mt-1">
+                <div class="col text-center">
+                    <p class="my-text7 my-pri-color mt-3 font-bold">Capture Fingers</p>
+                </div>
+            </div>
+            <div id="indexFingers" class="row justify-content-center">
+                <div id="index_left_finger" class="col-6 mb-3 mb-md-0 text-center">
+                    <span class="icon icon-indexfinger-not-enrolled" title="not_enrolled"></span>
+                </div>
+                <div id="index_right_finger" class="col-6 mb-3 mb-md-0 text-center">
+                    <span class="icon icon-indexfinger-not-enrolled" title="not_enrolled"></span>
+                </div>
+                <div class="col-6 text-center my-2">
+                    <button class="btn btn-primary btn-block my-sec-bg my-text-button py-1" type="submit"
+                        id="captureLeftButton">Capture Left Index</button>
+                </div>
+                <div class="col-6 text-center my-2">
+                    <button class="btn btn-primary btn-block my-sec-bg my-text-button py-1" type="submit"
+                        id="captureRightButton">Capture Right Index</button>
+                </div>
+                <div class="col-6 text-center">
+                    <img src="/static/finger.jpeg" id="leftImage"
+                        style="width: 150px; height: 150px; object-fit: contain;" />
+                </div>
+                <div class="col-6 text-center">
+                    <img src="/static/finger.jpeg" id="rightImage"
+                        style="width: 150px; height: 150px; object-fit: contain;" />
+                </div>
+            </div>
+            <div class="d-flex justify-content-center gap-2">
+                <div class="">
+                    <button class="btn btn-primary btn-block my-sec-bg my-text-button py-1" type="button"
+                       id="submitButton" >Enroll</button>
+                </div>
+                <div class="">
+                    <button class="btn btn-secondary btn-outline-warning btn-block my-text-button py-1 border-0"
+                        type="button" id="clearButton">Clear</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+
+    <div style="display: none;" class="reader-communication-error">
+        Cannot connect to you fingerprint device. Make sure the device is connected.
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="static/modules/WebSDK/index.js"></script>
+    <script type="module" src="static/bundle.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+{
+  "name": "face-recognition-based-attendance-system-master",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch-js": "watchify ./src/main.js -o ./static/bundle.js",
+    "develop": "webpack-dev-server --mode development --hot",
+    "build": "webpack --mode production"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@digitalpersona/devices": "^0.2.6",
+    "@types/bootstrap": "^5.2.6",
+    "bootstrap": "^5.2.3",
+    "browserify": "^17.0.0",
+    "rxjs": "^7.8.1",
+    "tsify": "^5.0.4",
+    "typescript": "^5.0.4",
+    "vertx": "^0.0.1-security",
+    "watchify": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.16",
+    "ts-loader": "^9.4.2",
+    "webpack": "^5.82.1",
+    "webpack-cli": "^5.1.1",
+    "webpack-dev-server": "^4.15.0"
+  }
+}

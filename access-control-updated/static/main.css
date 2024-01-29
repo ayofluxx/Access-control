@@ -1,0 +1,145 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50)), url('/static/unilag_bg.jpg'), no-repeat;
+
+    background-size: contain;
+    font-family: sans-serif;
+    margin-top: 40px;
+    /* height: 100vh; */
+    padding: 0;
+    margin: 0;
+}
+
+table {
+    border: 1px;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 86%;
+    margin: auto;
+}
+
+td,
+th {
+    border: 1px solid black !important;
+    padding: 5px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+
+.frameDoor
+{
+  background-color: black;
+  width:300px;
+  height:400px;
+  padding: 10px 10px 0;
+  margin: 0 auto;
+  margin-top:50px;
+}
+
+.door
+{
+  background-color: brown;
+  display:block;
+  width:50%;
+  height:100%;
+  /*Speed of the Door animation*/
+  transition: all 0.5s ease-in-out;
+}
+.door1{
+  transform-style: preserve-3d;
+  transition: transform .5s, box-shadow .5s;
+  transform-origin: left center; 
+}
+.door2{
+  transform-style: preserve-3d;
+  transition: transform .5s, box-shadow .5s;
+  transform-origin: right center; 
+}
+.door img {
+  width:100%;
+  height:100%;
+}
+
+.doorOpen1
+{
+  transform: perspective(1200px) rotateY(-105deg);
+  
+}
+
+.doorOpen2
+{
+  transform: perspective(1200px) rotateY(105deg);
+}
+
+
+.icon {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  background-size: cover;
+}
+
+.icon-indexfinger-not-enrolled{
+  background-image: url("/static/res/svg/indexfinger_not_enrolled.svg");
+}
+
+.icon-indexfinger-enrolled{
+  background-image: url("/static/res/svg/indexfinger_enrolled.svg");
+}
+
+.icon-middlefinger-not-enrolled{
+  background-image: url("/static/res/svg/middlefinger_not_enrolled.svg");
+}
+
+.icon-middlefinger-enrolled{
+  background-image: url("/static/res/svg/middlefinger_enrolled.svg");
+}
+
+.capture-indexfinger{
+  animation-duration: 500ms;
+  animation-name: blink-index-finger;
+  animation-iteration-count: infinite;
+}
+
+.capture-middlefinger{
+  animation-duration: 500ms;
+  animation-name: blink-middle-finger;
+  animation-iteration-count: infinite;
+}
+
+@keyframes blink-index-finger{
+  from{
+      background-image: url("/static/res/svg/indexfinger_not_enrolled.svg");
+  }
+
+  to{
+      background-image: url("/static/res/svg/indexfinger-anim.svg");
+  }
+}
+
+@keyframes blink-middle-finger{
+  from{
+      background-image: url("/static/res/svg/middlefinger_not_enrolled.svg");
+  }
+
+  to{
+      background-image: url("/static/res/svg/middlefinger-anim.svg");
+  }
+}
+
+
+
+.finger-form{
+  background-color: white;
+  padding: 50px;
+  width: 90vw;
+}

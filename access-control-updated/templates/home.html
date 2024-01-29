@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+    <link rel="manifest" href="/static/site.webmanifest">
+
+    <link rel="stylesheet" href="/static/main.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Intelligent Access Control System</title>
+</head>
+
+<body>
+
+    <div class='mt-3 text-center'>
+        <a href="/">
+            <img src="/static/logo.png" style="width: 80px; height:80px;" alt="" srcset="">
+        </a>
+
+        <h2 style="width: auto;margin: auto;color: white;padding: 11px;font-size: 32px;">Intelligent
+            Access Control System</h2>
+    </div>
+
+    {% if mess%}
+    <p class="text-center" style="color: red;font-size: 20px;">{{ mess }}</p>
+    {% endif %}
+    <div class="w-100 d-flex flex-column justify-content-center align-items-center">
+        {% if open %}
+        <p class="text-center" style="color: rgb(18, 185, 18);font-size: 20px; font-weight: 800;">Access Granted,
+            Welcome {{name.title()}}</p>
+        {% endif %}
+        <div class="row    " style=" max-width: fit-content !important;">
+            <div class="col-12 col-md-6">
+                {% if open %}
+
+                <div class="frameDoor ">
+                    <div  class="door door1 doorOpen1" style="float:left">
+                        <img src="/static/door.jpg">
+                    </div>
+                    <div class="door door2 doorOpen2    " style="float:right">
+                        <img src="/static/door.jpg">
+                    </div>
+                </div>
+                {% else %}
+                <div class="frameDoor ">
+                    <div id="doorOpen1" class="door door1 " style="float:left">
+                        <img src="/static/door.jpg">
+                    </div>
+                    <div id="doorOpen2" class="door door2     " style="float:right">
+                        <img src="/static/door.jpg">
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
+                <div class="d-flex flex-column gap-2">
+
+                    <a style="text-decoration: none;max-width: 300px;" href="/start">
+                        <button style="font-size: 16px;font-weight: bold;border-radius: 8px;padding: 10px;width: 250px;"
+                            type='submit' class='btn btn-primary d-flex align-items-center justify-content-center'>
+                            Facial Biometrics <i class="material-icons">person_search</i></button>
+                    </a>
+
+                    <p class="text-center w-100 text-white fw-bolder  ">OR</p>
+
+                    <button style="font-size: 16px;font-weight: bold;border-radius: 8px;padding: 10px;width: 250px;"
+                        type='submit' data-bs-toggle="modal" data-bs-target="#fingerprintModal"
+                        class='btn btn-primary d-flex align-items-center justify-content-center'> Fingerprint Biometrics
+                        <i class="material-icons">fingerprint</i></button>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- <div class="row text-center" style="padding: 20px;margin: 20px;">
+
+        <div class="col-12"
+            style="border-radius: 20px;padding: 0px;background-color:rgb(211,211,211,0.5);margin:0px 10px 10px 10px;">
+            <h2 style="border-radius: 20px 20px 0px 0px;background-color: #0b4c61;color: white;padding: 10px;">
+                <span>Today's Access
+                    Logs</span>
+                <i class="material-icons">assignment</i>
+            </h2>
+
+
+            <table style="background-color: white;">
+                <tr>
+                    <td><b>Serial No</b></td>
+                    <td><b>Name</b></td>
+                    <td><b>ID</b></td>
+                    <td><b>Time</b></td>
+                    <td><b>Access Type</b></td>
+                </tr>
+                {% if logs %}
+
+                {% for log in logs %}
+                <tr>
+                    <td>{{ log.id }}</td>
+                    <td>{{ log.name.title() }}</td>
+                    <td>{{ log.user_id }}</td>
+                    <td>{{ log.time.strftime("%I:%M %p") }}</td>
+                    <td>{{ log.access_type }}</td>
+                </tr>
+                {% endfor %}
+                {% endif %}
+            </table>
+
+        </div>
+
+
+        <div class="d-flex w-100 justify-content-center">
+            <a href="/register" style="text-decoration: none;"><button
+                    style="width: fit-content;margin-top: 20px;font-size: 20px;" type='link' class='btn btn-success'>Add
+                    New User Biometrics
+                </button></a>
+
+        </div>
+
+        <br>
+        <h5 class="text-white" style="padding: 25px; color:white;"><i>Total Users in Database: {{totalreg}}</i></h5>
+        </form>
+    </div> -->
+
+    </div>
+
+    <div class="modal fade" id="fingerprintModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <p class="text-center w-100">Place either index finger on scanner</p>
+                    <div class="my-1 d-flex w-100 justify-content-center">
+                        <script
+                            src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                        <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_vNC7MobxdL.json"
+                            background="transparent" speed="1" style="width: 300px; height: 300px;" loop 
+                            autoplay></lottie-player>
+                    </div>
+                    <div id="verifyloader" class="w-100 d-flex text-center justify-content-center visually-hidden">
+                        <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="static/modules/WebSDK/index.js"></script>
+    <script type="module" src="static/bundle.js"></script>
+</body>
+
+</html>
